@@ -1,8 +1,8 @@
 name: Poll events
 
-on: workflow_dispatch
-  # schedule:
-  #   - cron: "0 * * * *"
+on:
+  schedule:
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
