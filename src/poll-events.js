@@ -4,6 +4,7 @@ const {
     removeOldFilesFromCollection,
     writePollToCollection,
     removeDupesFromCollection,
+    oldCollectionToArray,
 } = require('./tools/fs-utils');
 
 /**
@@ -13,8 +14,9 @@ const {
  * @param {Object} commonRequestData
  */
 const pollEvents = async (collectionPath, commonRequestData) => {
-    const newPoll = await getGithubEvents(commonRequestData);
-    await writePollToCollection(collectionPath, newPoll);
+    // const newPoll = await getGithubEvents(commonRequestData);
+    const collectionArray = await oldCollectionToArray('events_collection.jsonl');
+    await writePollToCollection(collectionPath, collectionArray);
     await removeDupesFromCollection(collectionPath);
     await removeOldFilesFromCollection(collectionPath, EVENT_EXPIRATION_DAYS);
 };
