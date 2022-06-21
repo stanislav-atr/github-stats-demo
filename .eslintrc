@@ -1,0 +1,20 @@
+{
+    "extends": [
+        "airbnb-base"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1,
+                "ignoreComments": false
+            }
+        ],
+        "arrow-body-style": "off",
+        "no-else-return": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020
+    }
+}
