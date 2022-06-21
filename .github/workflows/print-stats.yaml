@@ -28,11 +28,11 @@ jobs:
         with:
           node-version: 16
       - name: Install package
-        run: npm i -g @adguard/github-stats
+        run: yarn
       - name: Print repo stats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COLLECTION_PATH: ./stats-data
+          COLLECTION_PATH: stats-data
           REPO: ${{ github.event.inputs.repo }}
           SINCE: ${{ github.event.inputs.since }}
           UNTIL: ${{ github.event.inputs.until }}
