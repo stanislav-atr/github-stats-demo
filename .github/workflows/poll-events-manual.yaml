@@ -1,8 +1,6 @@
-name: Poll events
+name: Poll events (manually)
 
-on:
-  schedule:
-    - cron: "0 * * * *"
+on: workflow_dispatch
 
 permissions:
   contents: write
