@@ -20,7 +20,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COLLECTION_PATH: stats-data
           REPO: AdguardTeam/AdguardFilters
-        run: github-poll
+        run: |
+          mkdir $COLLECTION_PATH
+          github-poll
       - name: commit artifacts
         uses: EndBug/add-and-commit@v9
         with:
