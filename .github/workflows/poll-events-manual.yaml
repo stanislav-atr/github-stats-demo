@@ -1,4 +1,4 @@
-name: Poll events
+name: Poll events (manually)
 
 on: workflow_dispatch
 
