@@ -193,23 +193,7 @@ const removeOldFilesFromCollection = async (path, expirationDays) => {
     });
 };
 
-const oldCollectionToArray = async (path) => {
-    const fileEventsStream = createReadStream(path, {
-        flags: 'r',
-    });
-    const collectionStream = fileEventsStream.pipe(parser());
-
-    const filteringCallback = (data, accArray) => {
-        // Remove parser() wrapping
-        const eventFromFile = data.value;
-        accArray.push(eventFromFile);
-    };
-    const collectionArray = await reduceStream(collectionStream, filteringCallback);
-    return collectionArray;
-};
-
 module.exports = {
-    oldCollectionToArray,
     getEventsFromCollection,
     writePollToCollection,
     removeDupesFromCollection,
