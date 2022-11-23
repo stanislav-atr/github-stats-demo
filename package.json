@@ -5,6 +5,7 @@
     "license": "MIT",
     "bin": {
         "github-poll": "./bin/github-poll.js",
+        "github-push": "./bin/github-push.js",
         "github-stats": "./bin/github-stats.js"
     },
     "scripts": {
@@ -17,6 +18,7 @@
         "dotenv": "^16.0.0",
         "fs-extra": "^10.1.0",
         "lodash": "^4.17.21",
+        "node-fetch": "2",
         "stream-chain": "^2.2.5",
         "stream-json": "^1.7.4"
     },
