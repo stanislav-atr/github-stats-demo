@@ -1,8 +1,8 @@
-name: Push stats (manually)
+name: Push stats
 
 on:
   schedule:
-    - cron: "0 09 * * *"
+    - cron: "0 * * * *"
 
 jobs:
   stats:
