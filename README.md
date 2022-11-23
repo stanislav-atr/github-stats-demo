@@ -25,7 +25,7 @@ env \
 
 ```
 env \
-    COLLECTION_PATH=events_collection.jsonl \
+    COLLECTION_PATH=stats-data \
     GITHUB_TOKEN=token \
     REPO=AdguardTeam/AdguardFilters \
     UNTIL=2022-05-25T15:00:00Z \
