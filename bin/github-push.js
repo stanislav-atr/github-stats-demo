@@ -18,14 +18,15 @@ const commonRequestData = {
     repo: REPO.split('/')[1],
 };
 
+// Set defaults to last 24h period
 const timePeriod = {
     until: UNTIL || new Date().toISOString(),
-    since: SINCE,
+    since: SINCE || new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
 };
 
 (async () => {
     console.log(timePeriod);
-    // const statistics = await prepareStats(COLLECTION_PATH, commonRequestData, timePeriod);
+    const statistics = await prepareStats(COLLECTION_PATH, commonRequestData, timePeriod);
 
-    // await pushStats(statistics, SLACK_WEBHOOK_URL);
+    await pushStats(statistics, SLACK_WEBHOOK_URL);
 })();
