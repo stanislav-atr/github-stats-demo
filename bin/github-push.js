@@ -20,12 +20,11 @@ const commonRequestData = {
 
 // Set defaults to last 24h period
 const timePeriod = {
-    until: UNTIL || new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-    since: SINCE || new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+    until: UNTIL || new Date().toISOString(),
+    since: SINCE || new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
 };
 
 (async () => {
-    console.log(timePeriod);
     const statistics = await prepareStats(COLLECTION_PATH, commonRequestData, timePeriod);
 
     await pushStats(statistics, SLACK_WEBHOOK_URL);

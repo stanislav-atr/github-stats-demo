@@ -1,4 +1,4 @@
-name: Push stats (test)
+name: Push stats (debug)
 
 on: workflow_dispatch
 
