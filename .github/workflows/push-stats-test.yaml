@@ -1,0 +1,27 @@
+name: Push stats (test)
+
+on: workflow_dispatch
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install package
+        run: yarn
+      - name: Set current date in ISO format
+        run: echo "until=$(date +'%Y-%m-%dT%H:%M:%S')Z" >> $GITHUB_ENV
+      - name: Set 24h ago date
+        run: echo "since=$(date -v-24H +'%Y-%m-%dT%H:%M:%S')Z" >> $GITHUB_ENV
+      - name: Push repo stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          COLLECTION_PATH: ./stats-data
+          REPO: AdguardTeam/AdguardFilters
+          SINCE: ${{ env.since }}
+          UNTIL: ${{ env.until }}
+        run: ./bin/github-push.js

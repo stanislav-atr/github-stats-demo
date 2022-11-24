@@ -24,7 +24,8 @@ const timePeriod = {
 };
 
 (async () => {
-    const statistics = await prepareStats(COLLECTION_PATH, commonRequestData, timePeriod);
+    console.log(timePeriod);
+    // const statistics = await prepareStats(COLLECTION_PATH, commonRequestData, timePeriod);
 
-    await pushStats(statistics, SLACK_WEBHOOK_URL);
+    // await pushStats(statistics, SLACK_WEBHOOK_URL);
 })();
