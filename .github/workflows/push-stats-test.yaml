@@ -12,8 +12,8 @@ jobs:
           node-version: 16
       - name: Install package
         run: yarn
-      - name: Set current date in ISO format
-        run: echo "until=$(date +'%Y-%m-%dT%H:%M:%S')Z" >> $GITHUB_ENV
+      # - name: Set current date in ISO format
+      #   run: echo "until=$(date +'%Y-%m-%dT%H:%M:%S')Z" >> $GITHUB_ENV
       - name: Set 24h ago date
         run: echo "since=$(date -v-24H +'%Y-%m-%dT%H:%M:%S')Z" >> $GITHUB_ENV
       - name: Push repo stats
