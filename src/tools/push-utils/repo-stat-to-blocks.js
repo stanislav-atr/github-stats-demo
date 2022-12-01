@@ -1,9 +1,11 @@
+import { getMrkdwnBlock } from './get-mrkdwn-block';
+
 /**
- * Converts repo stat object to string of Slack blocks
+ * Converts general repo stat object to array of Slack blocks
  * @param {Object} repoStat
  * @returns {Array}
  */
-const repoStatToBlocks = (repoStat) => {
+export const repoStatToBlocks = (repoStat) => {
     const {
         timePeriod,
         newIssues,
@@ -30,53 +32,13 @@ const repoStatToBlocks = (repoStat) => {
                 emoji: true,
             },
         },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*Resolved issues:* ${resolvedIssues}`,
-            },
-        },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*New issues:* ${newIssues}`,
-            },
-        },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*Closed as stale:* ${closedAsStaleIssues}`,
-            },
-        },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*New pull requests:* ${newPulls}`,
-            },
-        },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*Merged pull requests:* ${mergedPulls}`,
-            },
-        },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*Remaining issues:* ${remainingIssues}`,
-            },
-        },
+        getMrkdwnBlock(`*Resolved issues:* ${resolvedIssues}`),
+        getMrkdwnBlock(`*New issues:* ${newIssues}`),
+        getMrkdwnBlock(`*Closed as stale:* ${closedAsStaleIssues}`),
+        getMrkdwnBlock(`*New pull requests:* ${newPulls}`),
+        getMrkdwnBlock(`*Merged pull requests:* ${mergedPulls}`),
+        getMrkdwnBlock(`*Remaining issues:* ${remainingIssues}`),
     ];
 
     return blocks;
-};
-
-module.exports = {
-    repoStatToBlocks,
 };
