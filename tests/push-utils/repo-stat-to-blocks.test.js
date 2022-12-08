@@ -1,5 +1,5 @@
 import { repoStatToBlocks } from '../../src/tools/push-utils/repo-stat-to-blocks';
-import { getMrkdwnBlock } from '../../src/tools/push-utils/get-formatted-block';
+import { getMrkdwnBlock } from '../../src/tools/push-utils/get-mrkdwn-block';
 
 describe('Formatting general repo stat the right way', () => {
     it('works', () => {

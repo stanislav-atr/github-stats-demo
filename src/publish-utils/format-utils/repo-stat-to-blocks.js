@@ -1,11 +1,11 @@
-import { getMrkdwnBlock } from './get-mrkdwn-block';
+const { getMrkdwnBlock } = require('./get-mrkdwn-block');
 
 /**
  * Converts general repo stat object to array of Slack blocks
  * @param {Object} repoStat
- * @returns {Array}
+ * @returns {Object[]}
  */
-export const repoStatToBlocks = (repoStat) => {
+const repoStatToBlocks = (repoStat) => {
     const {
         timePeriod,
         newIssues,
@@ -41,4 +41,8 @@ export const repoStatToBlocks = (repoStat) => {
     ];
 
     return blocks;
+};
+
+module.exports = {
+    repoStatToBlocks,
 };

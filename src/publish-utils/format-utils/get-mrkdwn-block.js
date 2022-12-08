@@ -8,4 +8,6 @@ const getMrkdwnBlock = (text) => {
     };
 };
 
-export { getMrkdwnBlock };
+module.exports = {
+    getMrkdwnBlock,
+};
