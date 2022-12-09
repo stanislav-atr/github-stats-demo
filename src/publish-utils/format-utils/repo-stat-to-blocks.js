@@ -1,11 +1,12 @@
 const { getMrkdwnBlock } = require('./get-mrkdwn-block');
+const { getFormattedDate } = require('./get-formatted-date');
 
 /**
  * Converts general repo stat object to array of Slack blocks
  * @param {Object} repoStat
  * @returns {Object[]}
  */
-const repoStatToBlocks = (repoStat) => {
+const repoStatToBlocks = (repoStat, legendMessageUrl) => {
     const {
         timePeriod,
         newIssues,
@@ -17,13 +18,8 @@ const repoStatToBlocks = (repoStat) => {
     } = repoStat;
 
     const blocks = [
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `🗓️ _for the period from *${timePeriod.since}* to *${timePeriod.until}*_`,
-            },
-        },
+        getMrkdwnBlock(`_<${legendMessageUrl}|How is activity measured?>_`),
+        getMrkdwnBlock(`*${getFormattedDate(timePeriod.since)}*`),
         {
             type: 'header',
             text: {

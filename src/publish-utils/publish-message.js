@@ -6,6 +6,8 @@ async function publishMessage(client, oauthToken, message, channelId) {
             oauthToken,
             channel: channelId,
             blocks: message,
+            unfurl_links: false,
+            unfurl_media: false,
         });
     } catch (error) {
         // eslint-disable-next-line no-console
