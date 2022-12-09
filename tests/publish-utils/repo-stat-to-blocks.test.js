@@ -1,5 +1,8 @@
-import { repoStatToBlocks } from '../../src/tools/push-utils/repo-stat-to-blocks';
-import { getMrkdwnBlock } from '../../src/tools/push-utils/get-mrkdwn-block';
+import {
+    repoStatToBlocks,
+    getMrkdwnBlock,
+    getFormattedDate,
+} from '../../src/publish-utils/format-utils';
 
 describe('Formatting general repo stat the right way', () => {
     it('works', () => {
@@ -27,13 +30,7 @@ describe('Formatting general repo stat the right way', () => {
         } = repoStat;
 
         const expected = [
-            {
-                type: 'section',
-                text: {
-                    type: 'mrkdwn',
-                    text: `🗓️ _for the period from *${timePeriod.since}* to *${timePeriod.until}*_`,
-                },
-            },
+            getMrkdwnBlock(`*${getFormattedDate(timePeriod.since)}*`),
             {
                 type: 'header',
                 text: {

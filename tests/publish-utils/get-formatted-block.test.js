@@ -1,4 +1,4 @@
-import { getMrkdwnBlock } from '../../src/tools/push-utils/get-mrkdwn-block';
+import { getMrkdwnBlock } from '../../src/publish-utils/format-utils';
 
 describe('Formatting helpers return expected blocks', () => {
     it('getMrkdwnBlock works', () => {

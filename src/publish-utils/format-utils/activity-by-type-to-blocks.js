@@ -1,7 +1,7 @@
 /**
- *
- * @param {Object} repoStat
- * @returns {Array}
+ * Converts contributor's stats to an array of formatted block messages
+ * @param {Object} activitiesByType activity sorted by users and then by type
+ * @returns {Array[]}
  */
 const activityByTypeToBlocks = (activitiesByType) => {
     const userBlocks = [];

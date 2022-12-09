@@ -1,7 +1,7 @@
 /**
- * Converts activity stat object to string of Slack blocks
+ * Converts activity stat object to an array of Slack blocks
  * @param {Object} repoStat
- * @returns {Array}
+ * @returns {Object[]}
  */
 const activityStatToBlocks = (activityStat) => {
     const blocks = [

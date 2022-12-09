@@ -1,8 +1,8 @@
 import { WebClient, LogLevel } from '@slack/web-api';
 
 /**
- * Create Slack API Web Client
+ * Create authorized Web Client instance
  * @param {string} oauthToken
- * @returns {}
+ * @returns {Object} Slack WebClient instance
  */
 export const makeClient = (oauthToken) => new WebClient(oauthToken, { logLevel: LogLevel.DEBUG });

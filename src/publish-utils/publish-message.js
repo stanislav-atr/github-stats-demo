@@ -1,4 +1,11 @@
-// Post a message to a channel your app is in using ID and message text
+/**
+ * Post a message to a channel your app is in
+ * @param {Object} client Slack WebClient instance
+ * @param {string} oauthToken
+ * @param {Object[]} message array of formatted blocks
+ * @param {string} channelId
+ * @returns {Object} object with data about sent message
+ */
 export async function publishMessage(client, oauthToken, message, channelId) {
     let messageInfo;
     try {
@@ -14,6 +21,5 @@ export async function publishMessage(client, oauthToken, message, channelId) {
         console.error(error);
     }
 
-    // returs result, which includes information about the message (like TS)
     return messageInfo;
 }
