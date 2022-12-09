@@ -9,6 +9,7 @@
         "github-stats": "./bin/github-stats.js"
     },
     "scripts": {
+        "publish": "node -r esm ./bin/github-publish.js",
         "test": "jest",
         "lint": "eslint ."
     },

@@ -70,4 +70,4 @@ env \
 #### Additional params for publishing
 * `OAUTH_TOKEN` — required, Slack App token 
 * `CHANNEL_ID` — required, channel id to post messages to
-* `LEGEND_MESSAGE_URL` — optional, URL to an arbitrary slack message that supposed to be a legend. This is not displayed by default.
+* `LEGEND_MESSAGE_URL` — optional, URL to an arbitrary slack message that is supposed to be a legend to statistics. This is not displayed by default.

@@ -30,9 +30,9 @@ export const publishStats = async (oauthToken, legendMessageUrl, channelId, stat
 
     const client = makeClient(oauthToken);
     const messageInfo = await publishMessage(client, oauthToken, repoStatBlocks, channelId);
-console.log(messageInfo);
-    // await replyMessage(client, oauthToken, generalActivityBlocks, channelId, messageInfo.ts);
-    // detailedUserBlocks.forEach(async (userBlock) => {
-    //     await replyMessage(client, oauthToken, userBlock, channelId, messageInfo.ts);
-    // });
+
+    await replyMessage(client, oauthToken, generalActivityBlocks, channelId, messageInfo.ts);
+    detailedUserBlocks.forEach(async (userBlock) => {
+        await replyMessage(client, oauthToken, userBlock, channelId, messageInfo.ts);
+    });
 };
