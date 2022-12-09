@@ -27,7 +27,7 @@ const ACTION_NAMES = {
 
 const COLLECTION_FILE_EXTENSION = '.jsonl';
 
-module.exports = {
+export {
     USERNAMES_EXCLUDES,
     MIN_REQUIRED_ACTIVITY,
     MILLISECONDS_IN_DAY,

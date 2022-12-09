@@ -39,6 +39,4 @@ const activityStatToBlocks = (activityStat) => {
     return blocks;
 };
 
-module.exports = {
-    activityStatToBlocks,
-};
+export { activityStatToBlocks };

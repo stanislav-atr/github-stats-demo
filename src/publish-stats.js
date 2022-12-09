@@ -1,20 +1,21 @@
-const { makeClient } = require('./publish-utils/make-client');
-const { publishMessage } = require('./publish-utils/publish-message');
-const { replyMessage } = require('./publish-utils/reply-message');
-const { pruneStatistics } = require('./publish-utils/format-utils/prune-statistics');
+import {
+    makeClient,
+    publishMessage,
+    replyMessage,
+    pruneStatistics,
+    repoStatToBlocks,
+    activityStatToBlocks,
+    activityByTypeToBlocks,
+} from './publish-utils';
 
-const { repoStatToBlocks } = require('./publish-utils/format-utils/repo-stat-to-blocks');
-const { activityStatToBlocks } = require('./publish-utils/format-utils/activity-stat-to-blocks');
-const { activityByTypeToBlocks } = require('./publish-utils/format-utils/activity-by-type-to-blocks');
-
-const { MIN_REQUIRED_ACTIVITY } = require('./constants');
+import { MIN_REQUIRED_ACTIVITY } from './constants';
 
 /**
  *
  *
  * @param {Object} statistics
  */
-const publishStats = async (oauthToken, legendMessageUrl, channelId, statistics) => {
+export const publishStats = async (oauthToken, legendMessageUrl, channelId, statistics) => {
     const {
         repoStat,
         activityStat,
@@ -33,5 +34,3 @@ const publishStats = async (oauthToken, legendMessageUrl, channelId, statistics)
         await replyMessage(client, oauthToken, userBlock, channelId, messageInfo.ts);
     });
 };
-
-exports.publishStats = publishStats;

@@ -1,10 +1,10 @@
-const { getGithubEvents } = require('./tools/gh-utils');
-const { EVENT_EXPIRATION_DAYS } = require('./constants');
-const {
+import { getGithubEvents } from './tools/gh-utils';
+import { EVENT_EXPIRATION_DAYS } from './constants';
+import {
     removeOldFilesFromCollection,
     writePollToCollection,
     removeDupesFromCollection,
-} = require('./tools/fs-utils');
+} from './tools/fs-utils';
 
 /**
  * Polls events from Github Events API and stores them on a given path
@@ -12,11 +12,9 @@ const {
  * @param {string} collectionPath path to events collection
  * @param {Object} commonRequestData
  */
-const pollEvents = async (collectionPath, commonRequestData) => {
+export const pollEvents = async (collectionPath, commonRequestData) => {
     const newPoll = await getGithubEvents(commonRequestData);
     await writePollToCollection(collectionPath, newPoll);
     await removeDupesFromCollection(collectionPath);
     await removeOldFilesFromCollection(collectionPath, EVENT_EXPIRATION_DAYS);
 };
-
-exports.pollEvents = pollEvents;

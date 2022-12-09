@@ -58,6 +58,4 @@ Total comments: ${totalComments}
     return userBlocks;
 };
 
-module.exports = {
-    activityByTypeToBlocks,
-};
+export { activityByTypeToBlocks };

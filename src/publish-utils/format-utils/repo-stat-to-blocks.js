@@ -1,5 +1,5 @@
-const { getMrkdwnBlock } = require('./get-mrkdwn-block');
-const { getFormattedDate } = require('./get-formatted-date');
+import { getMrkdwnBlock } from './get-mrkdwn-block';
+import { getFormattedDate } from './get-formatted-date';
 
 /**
  * Converts general repo stat object to array of Slack blocks
@@ -18,7 +18,6 @@ const repoStatToBlocks = (repoStat, legendMessageUrl) => {
     } = repoStat;
 
     const blocks = [
-        getMrkdwnBlock(`_<${legendMessageUrl}|How is activity measured?>_`),
         getMrkdwnBlock(`*${getFormattedDate(timePeriod.since)}*`),
         {
             type: 'header',
@@ -36,9 +35,12 @@ const repoStatToBlocks = (repoStat, legendMessageUrl) => {
         getMrkdwnBlock(`*Remaining issues:* ${remainingIssues}`),
     ];
 
+    if (legendMessageUrl) {
+        const legendUrlBlock = getMrkdwnBlock(`_<${legendMessageUrl}|How is activity measured?>_`);
+        blocks.unshift(legendUrlBlock);
+    }
+
     return blocks;
 };
 
-module.exports = {
-    repoStatToBlocks,
-};
+export { repoStatToBlocks };

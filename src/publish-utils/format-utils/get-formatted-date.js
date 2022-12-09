@@ -13,4 +13,4 @@ const getFormattedDate = (date) => {
     return `<!date^${time}^{date}|Previous day>`;
 };
 
-module.exports = { getFormattedDate };
+export { getFormattedDate };

@@ -1,4 +1,4 @@
-const { USERNAMES_EXCLUDES } = require('../../constants');
+import { USERNAMES_EXCLUDES } from '../../constants';
 
 /**
  * Prune statistics object to exclude users by given params
@@ -27,4 +27,4 @@ const pruneStatistics = (statistics, minActivity) => {
     return prunedStat;
 };
 
-module.exports = { pruneStatistics };
+export { pruneStatistics };

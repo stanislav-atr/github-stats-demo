@@ -1,5 +1,5 @@
 // Reply to a message with the channel ID and message TS
-async function replyMessage(client, oauthToken, message, channelId, threadTs) {
+export async function replyMessage(client, oauthToken, message, channelId, threadTs) {
     try {
         await client.chat.postMessage({
             token: oauthToken,
@@ -10,10 +10,7 @@ async function replyMessage(client, oauthToken, message, channelId, threadTs) {
             unfurl_media: false,
         });
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
     }
 }
-
-module.exports = {
-    replyMessage,
-};
