@@ -3,9 +3,9 @@ import {
     publishMessage,
     replyMessage,
     pruneStatistics,
-    repoStatToBlocks,
-    activityStatToBlocks,
-    activityByTypeToBlocks,
+    formatRepoStat,
+    formatActivityStat,
+    formatUserActivity,
 } from './publish-utils';
 import { MIN_REQUIRED_ACTIVITY } from './constants';
 
@@ -20,12 +20,12 @@ export const publishStats = async (oauthToken, legendMessageUrl, channelId, stat
     const {
         repoStat,
         activityStat,
-        activitiesByType,
+        activitiesByUser,
     } = pruneStatistics(statistics, MIN_REQUIRED_ACTIVITY);
 
-    const repoStatBlocks = repoStatToBlocks(repoStat);
-    const generalActivityBlocks = activityStatToBlocks(activityStat, legendMessageUrl);
-    const detailedUserBlocks = activityByTypeToBlocks(activitiesByType);
+    const repoStatBlocks = formatRepoStat(repoStat);
+    const generalActivityBlocks = formatActivityStat(activityStat, legendMessageUrl);
+    const detailedUserBlocks = formatUserActivity(activitiesByUser);
 
     const client = makeClient(oauthToken);
     const messageInfo = await publishMessage(client, repoStatBlocks, channelId);

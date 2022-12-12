@@ -14,13 +14,13 @@ export const printStats = (statistics) => {
     const {
         repoStat,
         activityStat,
-        activitiesByType,
+        activitiesByUser,
         activitiesByTime,
     } = statistics;
 
     const generalRepoStatsString = repoStatToString(repoStat);
     const generalActivityString = activityToString(activityStat);
-    const detailedActivityString = detailedActivityToString(activitiesByType, activitiesByTime);
+    const detailedActivityString = detailedActivityToString(activitiesByUser, activitiesByTime);
 
     console.log(generalRepoStatsString);
     console.log(generalActivityString);

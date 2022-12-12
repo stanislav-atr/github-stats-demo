@@ -1,6 +1,8 @@
 /**
- * Creates markdown block
-
+ * Creates block with given params
+ * @param {string} text
+ * @param {string} textType
+ * @param {string} blockType
  * @returns {Object}
  */
 const getTextBlock = (text, textType = 'mrkdwn', blockType = 'section') => {

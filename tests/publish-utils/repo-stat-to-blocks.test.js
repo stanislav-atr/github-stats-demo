@@ -1,5 +1,5 @@
 import {
-    repoStatToBlocks,
+    formatRepoStat,
     getTextBlock,
     getFormattedDate,
 } from '../../src/publish-utils/format-utils';
@@ -46,7 +46,7 @@ describe('Formatting general repo stat the right way', () => {
             getTextBlock(`*Remaining issues:* ${remainingIssues}`),
         ];
 
-        const statBlocks = repoStatToBlocks(repoStat);
+        const statBlocks = formatRepoStat(repoStat);
 
         expect(statBlocks).toStrictEqual(expected);
     });

@@ -66,11 +66,11 @@ const activityByTimeToString = (activitiesByTime) => {
     return activityByTimeString;
 };
 
-const detailedActivityToString = (activitiesByType, activitiesByTime) => {
+const detailedActivityToString = (activitiesByUser, activitiesByTime) => {
     let statString = '\n## Detailed contributor statistics';
 
     // eslint-disable-next-line no-restricted-syntax
-    for (const [name, activities] of Object.entries(activitiesByType)) {
+    for (const [name, activities] of Object.entries(activitiesByUser)) {
         let contributorString = `
         \n\n### ${name}\n
         * Resolved issues: ${activities.resolvedIssues}

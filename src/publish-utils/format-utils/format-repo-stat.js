@@ -6,7 +6,7 @@ import { getFormattedDate } from './get-formatted-date';
  * @param {Object} repoStat
  * @returns {Object[]}
  */
-const repoStatToBlocks = (repoStat) => {
+const formatRepoStat = (repoStat) => {
     const {
         timePeriod,
         newIssues,
@@ -31,4 +31,4 @@ const repoStatToBlocks = (repoStat) => {
     return blocks;
 };
 
-export { repoStatToBlocks };
+export { formatRepoStat };

@@ -8,7 +8,7 @@ const { EVENT_TYPES } = require('../constants');
  */
 const prepareDetailedActivityStat = (contributors) => {
     // Activities amount by username and activity type
-    const activitiesByType = {};
+    const activitiesByUser = {};
     // Activities amount by username, date and hour
     const activitiesByTime = {};
     // eslint-disable-next-line no-restricted-syntax
@@ -27,12 +27,12 @@ const prepareDetailedActivityStat = (contributors) => {
         // Skip users who don't have activity that is needed for detailed stats
         const isActive = Object.values(detailedStats).some((stat) => stat !== 0);
         if (isActive) {
-            activitiesByType[name] = detailedStats;
+            activitiesByUser[name] = detailedStats;
         }
     }
 
     return {
-        activitiesByType,
+        activitiesByUser,
         activitiesByTime,
     };
 };

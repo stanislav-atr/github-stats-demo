@@ -2,13 +2,13 @@ import { getTextBlock } from './get-text-block';
 
 /**
  * Converts contributor's stats to an array of formatted block messages
- * @param {Object} activitiesByType activity sorted by users and then by type
+ * @param {Object} activitiesByUser activity sorted by users and then by type
  * @returns {Array[]}
  */
-const activityByTypeToBlocks = (activitiesByType) => {
+const formatUserActivity = (activitiesByUser) => {
     const userBlocks = [];
 
-    Object.entries(activitiesByType).forEach((stat) => {
+    Object.entries(activitiesByUser).forEach((stat) => {
         const username = stat[0];
         const activities = stat[1];
         const {
@@ -40,4 +40,4 @@ Total comments: ${totalComments}`),
     return userBlocks;
 };
 
-export { activityByTypeToBlocks };
+export { formatUserActivity };

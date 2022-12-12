@@ -1,4 +1,4 @@
-import { activityByTypeToBlocks } from '../../src/publish-utils/format-utils';
+import { formatUserActivity } from '../../src/publish-utils/format-utils';
 
 describe('Formatting personal activity stat the right way', () => {
     it('works', () => {
@@ -51,7 +51,7 @@ Total comments: ${totalComments}`,
                 },
             ],
         ];
-        const result = activityByTypeToBlocks(activityObject);
+        const result = formatUserActivity(activityObject);
 
         expect(expectedBlocks).toStrictEqual(result);
     });

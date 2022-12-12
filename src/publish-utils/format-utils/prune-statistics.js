@@ -11,7 +11,7 @@ const pruneStatistics = (statistics, minActivity) => {
 
     const {
         activityStat,
-        activitiesByType,
+        activitiesByUser,
     } = prunedStat;
 
     // eslint-disable-next-line no-restricted-syntax
@@ -20,7 +20,7 @@ const pruneStatistics = (statistics, minActivity) => {
             || USERNAMES_EXCLUDES.some((excludedName) => username === excludedName)
         ) {
             delete activityStat[username];
-            delete activitiesByType[username];
+            delete activitiesByUser[username];
         }
     }
 
