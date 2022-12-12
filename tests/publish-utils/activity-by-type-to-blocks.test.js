@@ -35,7 +35,7 @@ describe('Formatting personal activity stat the right way', () => {
                         type: 'plain_text',
                         text: `
 Resolved issues: ${resolvedIssues}
-Total commit: ${totalCommits}
+Total commits: ${totalCommits}
 Pull requests reviews: ${pullRequestsReview}
                     `,
                     },
