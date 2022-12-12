@@ -1,7 +1,7 @@
-import { getMrkdwnBlock } from '../../src/publish-utils/format-utils';
+import { getTextBlock } from '../../src/publish-utils/format-utils';
 
 describe('Formatting helpers return expected blocks', () => {
-    it('getMrkdwnBlock works', () => {
+    it('getTextBlock works', () => {
         const blockText = '*Resolved issues:* 15';
         const expected = {
             type: 'section',
@@ -11,7 +11,7 @@ describe('Formatting helpers return expected blocks', () => {
             },
         };
 
-        const result = getMrkdwnBlock(blockText);
+        const result = getTextBlock(blockText);
 
         expect(result).toStrictEqual(expected);
     });

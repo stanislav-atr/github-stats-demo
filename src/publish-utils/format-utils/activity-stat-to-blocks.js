@@ -1,4 +1,4 @@
-import { getMrkdwnBlock } from './get-mrkdwn-block';
+import { getTextBlock } from './get-text-block';
 
 /**
  * Converts activity stat object to an array of Slack blocks
@@ -8,16 +8,9 @@ import { getMrkdwnBlock } from './get-mrkdwn-block';
  */
 const activityStatToBlocks = (activityStat, legendMessageUrl) => {
     // Render empty block if message url is not supplied
-    const legendMessage = legendMessageUrl ? getMrkdwnBlock(`_By activity points (<${legendMessageUrl}|what is it?>)_`) : getMrkdwnBlock(' ');
+    const legendMessage = legendMessageUrl ? getTextBlock(`_By activity points (<${legendMessageUrl}|what is it?>)_`) : getTextBlock(' ');
     const blocks = [
-        {
-            type: 'header',
-            text: {
-                type: 'plain_text',
-                text: '🙇 General contributors statistics',
-                emoji: true,
-            },
-        },
+        getTextBlock('🙇 General contributors statistics', 'plain_text', 'header'),
         legendMessage,
     ];
 
@@ -33,13 +26,7 @@ const activityStatToBlocks = (activityStat, legendMessageUrl) => {
         const username = stat[0];
         const userstat = stat[1];
 
-        blocks.push({
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `*${username}:* ${userstat}`,
-            },
-        });
+        blocks.push(getTextBlock(`*${username}:* ${userstat}`));
     });
 
     return blocks;

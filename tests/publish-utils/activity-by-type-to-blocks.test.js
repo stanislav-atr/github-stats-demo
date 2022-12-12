@@ -32,23 +32,21 @@ describe('Formatting personal activity stat the right way', () => {
                 {
                     type: 'section',
                     text: {
-                        type: 'plain_text',
+                        type: 'mrkdwn',
                         text: `
 Resolved issues: ${resolvedIssues}
 Total commits: ${totalCommits}
-Pull requests reviews: ${pullRequestsReview}
-                    `,
+Pull requests reviews: ${pullRequestsReview}`,
                     },
                 },
                 {
                     type: 'section',
                     text: {
-                        type: 'plain_text',
+                        type: 'mrkdwn',
                         text: `
 Merged pull requests: ${mergedPulls}
 New pull requests: ${newPulls}
-Total comments: ${totalComments}
-                    `,
+Total comments: ${totalComments}`,
                     },
                 },
             ],

@@ -1,4 +1,4 @@
-import { getMrkdwnBlock } from './get-mrkdwn-block';
+import { getTextBlock } from './get-text-block';
 import { getFormattedDate } from './get-formatted-date';
 
 /**
@@ -18,21 +18,14 @@ const repoStatToBlocks = (repoStat) => {
     } = repoStat;
 
     const blocks = [
-        getMrkdwnBlock(`*${getFormattedDate(timePeriod.since)}*`),
-        {
-            type: 'header',
-            text: {
-                type: 'plain_text',
-                text: '⚡ General repo statistics',
-                emoji: true,
-            },
-        },
-        getMrkdwnBlock(`*Resolved issues:* ${resolvedIssues}`),
-        getMrkdwnBlock(`*New issues:* ${newIssues}`),
-        getMrkdwnBlock(`*Closed as stale:* ${closedAsStaleIssues}`),
-        getMrkdwnBlock(`*New pull requests:* ${newPulls}`),
-        getMrkdwnBlock(`*Merged pull requests:* ${mergedPulls}`),
-        getMrkdwnBlock(`*Remaining issues:* ${remainingIssues}`),
+        getTextBlock(`*${getFormattedDate(timePeriod.since)}*`),
+        getTextBlock('⚡ General repo statistics', 'plain_text', 'header'),
+        getTextBlock(`*Resolved issues:* ${resolvedIssues}`),
+        getTextBlock(`*New issues:* ${newIssues}`),
+        getTextBlock(`*Closed as stale:* ${closedAsStaleIssues}`),
+        getTextBlock(`*New pull requests:* ${newPulls}`),
+        getTextBlock(`*Merged pull requests:* ${mergedPulls}`),
+        getTextBlock(`*Remaining issues:* ${remainingIssues}`),
     ];
 
     return blocks;
