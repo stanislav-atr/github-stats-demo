@@ -1,9 +1,14 @@
+import { getMrkdwnBlock } from './get-mrkdwn-block';
+
 /**
  * Converts activity stat object to an array of Slack blocks
- * @param {Object} repoStat
+ * @param {Object} activityStat
+ * @param {string} legendMessageUrl URl to a slack message
  * @returns {Object[]}
  */
-const activityStatToBlocks = (activityStat) => {
+const activityStatToBlocks = (activityStat, legendMessageUrl) => {
+    // Render empty block if message url is not supplied
+    const legendMessage = legendMessageUrl ? getMrkdwnBlock(`_By activity points (<${legendMessageUrl}|what is it?>)_`) : getMrkdwnBlock(' ');
     const blocks = [
         {
             type: 'header',
@@ -13,6 +18,7 @@ const activityStatToBlocks = (activityStat) => {
                 emoji: true,
             },
         },
+        legendMessage,
     ];
 
     const statArray = Object.entries(activityStat);

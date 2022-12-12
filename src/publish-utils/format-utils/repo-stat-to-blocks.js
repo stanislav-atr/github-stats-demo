@@ -4,10 +4,9 @@ import { getFormattedDate } from './get-formatted-date';
 /**
  * Converts general repo stat object to array of Slack blocks
  * @param {Object} repoStat
- * @param {string} legendMessageUrl URl to a slack message
  * @returns {Object[]}
  */
-const repoStatToBlocks = (repoStat, legendMessageUrl) => {
+const repoStatToBlocks = (repoStat) => {
     const {
         timePeriod,
         newIssues,
@@ -35,11 +34,6 @@ const repoStatToBlocks = (repoStat, legendMessageUrl) => {
         getMrkdwnBlock(`*Merged pull requests:* ${mergedPulls}`),
         getMrkdwnBlock(`*Remaining issues:* ${remainingIssues}`),
     ];
-
-    if (legendMessageUrl) {
-        const legendUrlBlock = getMrkdwnBlock(`_<${legendMessageUrl}|How is activity measured?>_`);
-        blocks.unshift(legendUrlBlock);
-    }
 
     return blocks;
 };

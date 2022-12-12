@@ -7,7 +7,6 @@ import {
     activityStatToBlocks,
     activityByTypeToBlocks,
 } from './publish-utils';
-
 import { MIN_REQUIRED_ACTIVITY } from './constants';
 
 /**
@@ -24,15 +23,15 @@ export const publishStats = async (oauthToken, legendMessageUrl, channelId, stat
         activitiesByType,
     } = pruneStatistics(statistics, MIN_REQUIRED_ACTIVITY);
 
-    const repoStatBlocks = repoStatToBlocks(repoStat, legendMessageUrl);
-    const generalActivityBlocks = activityStatToBlocks(activityStat);
+    const repoStatBlocks = repoStatToBlocks(repoStat);
+    const generalActivityBlocks = activityStatToBlocks(activityStat, legendMessageUrl);
     const detailedUserBlocks = activityByTypeToBlocks(activitiesByType);
 
     const client = makeClient(oauthToken);
-    const messageInfo = await publishMessage(client, oauthToken, repoStatBlocks, channelId);
+    const messageInfo = await publishMessage(client, repoStatBlocks, channelId);
 
-    await replyMessage(client, oauthToken, generalActivityBlocks, channelId, messageInfo.ts);
+    await replyMessage(client, generalActivityBlocks, channelId, messageInfo.ts);
     detailedUserBlocks.forEach(async (userBlock) => {
-        await replyMessage(client, oauthToken, userBlock, channelId, messageInfo.ts);
+        await replyMessage(client, userBlock, channelId, messageInfo.ts);
     });
 };
