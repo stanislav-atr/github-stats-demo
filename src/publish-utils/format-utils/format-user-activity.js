@@ -9,8 +9,7 @@ const formatUserActivity = (activitiesByUser) => {
     const userBlocks = [];
 
     Object.entries(activitiesByUser).forEach((stat) => {
-        const username = stat[0];
-        const activities = stat[1];
+        const [username, activities] = stat;
         const {
             resolvedIssues,
             newPulls,

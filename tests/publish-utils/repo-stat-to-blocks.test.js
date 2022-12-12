@@ -1,7 +1,7 @@
 import {
     formatRepoStat,
     getTextBlock,
-    getFormattedDate,
+    formatDate,
 } from '../../src/publish-utils/format-utils';
 
 describe('Formatting general repo stat the right way', () => {
@@ -30,7 +30,7 @@ describe('Formatting general repo stat the right way', () => {
         } = repoStat;
 
         const expected = [
-            getTextBlock(`*${getFormattedDate(timePeriod.since)}*`),
+            getTextBlock(`*${formatDate(timePeriod.since)}*`),
             {
                 type: 'header',
                 text: {

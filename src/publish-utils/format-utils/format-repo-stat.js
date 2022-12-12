@@ -1,5 +1,5 @@
 import { getTextBlock } from './get-text-block';
-import { getFormattedDate } from './get-formatted-date';
+import { formatDate } from './format-date';
 
 /**
  * Converts general repo stat object to array of Slack blocks
@@ -18,7 +18,7 @@ const formatRepoStat = (repoStat) => {
     } = repoStat;
 
     const blocks = [
-        getTextBlock(`*${getFormattedDate(timePeriod.since)}*`),
+        getTextBlock(`*${formatDate(timePeriod.since)}*`),
         getTextBlock('⚡ General repo statistics', 'plain_text', 'header'),
         getTextBlock(`*Resolved issues:* ${resolvedIssues}`),
         getTextBlock(`*New issues:* ${newIssues}`),
