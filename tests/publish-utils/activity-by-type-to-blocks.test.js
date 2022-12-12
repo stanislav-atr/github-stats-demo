@@ -54,8 +54,7 @@ Total comments: ${totalComments}
             ],
         ];
         const result = activityByTypeToBlocks(activityObject);
-        console.log(expectedBlocks);
-        console.log(result);
+
         expect(expectedBlocks).toStrictEqual(result);
     });
 });
