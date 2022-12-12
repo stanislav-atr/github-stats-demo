@@ -2,7 +2,9 @@ import { USERNAMES_EXCLUDES } from '../../constants';
 
 /**
  * Prune statistics object to exclude users by given params
+ * @param {Object} statistics
  * @param {number} minActivity
+ * @returns {Object}
  */
 const pruneStatistics = (statistics, minActivity) => {
     const prunedStat = {
@@ -16,9 +18,7 @@ const pruneStatistics = (statistics, minActivity) => {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const [username, count] of Object.entries(activityStat)) {
-        if (count <= minActivity
-            || USERNAMES_EXCLUDES.some((excludedName) => username === excludedName)
-        ) {
+        if (count <= minActivity || USERNAMES_EXCLUDES.includes(username)) {
             delete activityStat[username];
             delete activitiesByUser[username];
         }
