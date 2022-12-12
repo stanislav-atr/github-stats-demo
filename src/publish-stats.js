@@ -31,7 +31,9 @@ export const publishStats = async (oauthToken, legendMessageUrl, channelId, stat
     const messageInfo = await publishMessage(client, repoStatBlocks, channelId);
 
     await replyMessage(client, generalActivityBlocks, channelId, messageInfo.ts);
-    detailedUserBlocks.forEach(async (userBlock) => {
-        await replyMessage(client, userBlock, channelId, messageInfo.ts);
-    });
+
+    for (let i = 0; i < detailedUserBlocks.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await replyMessage(client, detailedUserBlocks[i], channelId, messageInfo.ts);
+    }
 };
