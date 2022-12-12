@@ -4,6 +4,7 @@ import { getFormattedDate } from './get-formatted-date';
 /**
  * Converts general repo stat object to array of Slack blocks
  * @param {Object} repoStat
+ * @param {string} legendMessageUrl URl to a slack message
  * @returns {Object[]}
  */
 const repoStatToBlocks = (repoStat, legendMessageUrl) => {
