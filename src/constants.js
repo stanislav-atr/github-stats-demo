@@ -1,10 +1,14 @@
-const MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
-const EVENT_EXPIRATION_DAYS = 30;
-const ENDPOINTS = {
+export const USERNAMES_EXCLUDES = ['adguard-bot'];
+export const MIN_REQUIRED_ACTIVITY = 5;
+
+export const MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
+export const EVENT_EXPIRATION_DAYS = 30;
+export const ENDPOINTS = {
     ISSUES: 'GET /repos/{owner}/{repo}/issues',
     GITHUB_EVENTS: 'GET /repos/{owner}/{repo}/events',
 };
-const EVENT_TYPES = {
+
+export const EVENT_TYPES = {
     ISSUES_EVENT: 'IssuesEvent',
     ISSUE_COMMENT_EVENT: 'IssueCommentEvent',
     PULL_REQUEST_EVENT: 'PullRequestEvent',
@@ -14,22 +18,14 @@ const EVENT_TYPES = {
     NEW_PULL_EVENT: 'newPullEvent',
     MERGED_PULL_EVENT: 'mergePullEvent',
 };
-const LABEL_NAMES = {
+
+export const LABEL_NAMES = {
     STALE: 'Stale',
 };
-const ACTION_NAMES = {
+
+export const ACTION_NAMES = {
     OPENED: 'opened',
     CLOSED: 'closed',
 };
 
-const COLLECTION_FILE_EXTENSION = '.jsonl';
-
-module.exports = {
-    MILLISECONDS_IN_DAY,
-    EVENT_EXPIRATION_DAYS,
-    ENDPOINTS,
-    EVENT_TYPES,
-    LABEL_NAMES,
-    ACTION_NAMES,
-    COLLECTION_FILE_EXTENSION,
-};
+export const COLLECTION_FILE_EXTENSION = '.jsonl';

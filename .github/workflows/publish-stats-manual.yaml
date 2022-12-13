@@ -1,4 +1,4 @@
-name: Push stats (manually)
+name: Publish stats (manually)
 
 on:
   workflow_dispatch:
@@ -31,10 +31,12 @@ jobs:
         run: yarn
       - name: Push repo stats
         env:
+          LEGEND_MESSAGE_URL: ${{ secrets.LEGEND_MESSAGE_URL }}
+          OAUTH_TOKEN: ${{ secrets.OAUTH_TOKEN }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           COLLECTION_PATH: ./stats-data
           REPO: ${{ github.event.inputs.repo }}
           SINCE: ${{ github.event.inputs.since }}
           UNTIL: ${{ github.event.inputs.until }}
-        run: ./bin/github-push.js
+        run: node -r esm ./bin/github-publish.js

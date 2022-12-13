@@ -2,6 +2,9 @@
     "extends": [
         "airbnb-base"
     ],
+    "env": {
+        "jest": true
+    },
     "rules": {
         "indent": [
             "error",
@@ -12,7 +15,8 @@
             }
         ],
         "arrow-body-style": "off",
-        "no-else-return": "off"
+        "no-else-return": "off",
+        "import/prefer-default-export": "off"
     },
     "parserOptions": {
         "ecmaVersion": 2020
