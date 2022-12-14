@@ -1,8 +1,8 @@
-const { prepareRepoStat } = require('./prepare-repo-stat');
-const { prepareContributors } = require('./prepare-contributors');
-const { prepareActivityStat } = require('./prepare-contributors-stat');
-const { prepareDetailedActivityStat } = require('./prepare-detailed-activity-stat');
-const { getEventsFromCollection } = require('../tools/fs-utils');
+import { prepareRepoStat } from './prepare-repo-stat';
+import { prepareContributors } from './prepare-contributors';
+import { prepareActivityStat } from './prepare-contributors-stat';
+import { prepareDetailedActivityStat } from './prepare-detailed-activity-stat';
+import { getEventsFromCollection } from '../tools/fs-utils';
 
 /**
  * Process all stored events to compose statistics object
@@ -12,7 +12,7 @@ const { getEventsFromCollection } = require('../tools/fs-utils');
  * @param {string} searchTime timestamp from which to get events
  * @return {Object}
  */
-const prepareStats = async (collectionPath, commonRequestData, timePeriod) => {
+export const prepareStats = async (collectionPath, commonRequestData, timePeriod) => {
     const eventsFromPeriod = await getEventsFromCollection(collectionPath, timePeriod);
 
     const repoStat = await prepareRepoStat(eventsFromPeriod, commonRequestData, timePeriod);
@@ -27,5 +27,3 @@ const prepareStats = async (collectionPath, commonRequestData, timePeriod) => {
         ...detailedActivityStat,
     };
 };
-
-exports.prepareStats = prepareStats;

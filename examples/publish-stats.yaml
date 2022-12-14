@@ -12,12 +12,12 @@ on:
         description: 'Timestamp to search from'
         required: false
         type: string
-        default: '2022-11-21T21:00:00Z'
+        default: '2022-11-21T09:00:00Z'
       until:
         description: 'Timestamp to search to'
         required: false
         type: string
-        default: '2022-11-22T21:00:00Z'
+        default: '2022-11-22T09:00:00Z'
 
 jobs:
   stats:
@@ -29,7 +29,7 @@ jobs:
           node-version: 16
       - name: Install package
         run: yarn
-      - name: Push repo stats
+      - name: Publish repo stats
         env:
           LEGEND_MESSAGE_URL: ${{ secrets.LEGEND_MESSAGE_URL }}
           OAUTH_TOKEN: ${{ secrets.OAUTH_TOKEN }}

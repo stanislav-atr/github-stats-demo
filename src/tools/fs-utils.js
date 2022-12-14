@@ -1,27 +1,27 @@
-const {
+import {
     createWriteStream,
     createReadStream,
     pathExists,
     remove,
     readdir,
     ensureDir,
-} = require('fs-extra');
-const {
+} from 'fs-extra';
+import {
     format,
     endOfYesterday,
     eachDayOfInterval,
-} = require('date-fns');
-const { intersection } = require('lodash/array');
-const { Readable } = require('stream');
-const { chain } = require('stream-chain');
-const { parser } = require('stream-json/jsonl/Parser');
-const { reduceStream } = require('./stream-utils');
-const {
+} from 'date-fns';
+import { intersection } from 'lodash/array';
+import { Readable } from 'stream';
+import { chain } from 'stream-chain';
+import { parser } from 'stream-json/jsonl/Parser';
+import { reduceStream } from './stream-utils';
+import {
     isCreatedSince,
     isCreatedUntil,
     sortEventsByDate,
-} = require('./events-utils');
-const { MILLISECONDS_IN_DAY, COLLECTION_FILE_EXTENSION } = require('../constants');
+} from './events-utils';
+import { MILLISECONDS_IN_DAY, COLLECTION_FILE_EXTENSION } from '../constants';
 
 /**
  * Gets array of GitHub event objects from file and by timePeriod
@@ -193,7 +193,7 @@ const removeOldFilesFromCollection = async (path, expirationDays) => {
     });
 };
 
-module.exports = {
+export {
     getEventsFromCollection,
     writePollToCollection,
     removeDupesFromCollection,

@@ -1,4 +1,4 @@
-const { format } = require('date-fns');
+import { format } from 'date-fns';
 
 const repoStatToString = (repoStats) => {
     const { until, since } = repoStats.timePeriod;
@@ -88,7 +88,7 @@ const detailedActivityToString = (activitiesByUser, activitiesByTime) => {
     return statString;
 };
 
-module.exports = {
+export {
     repoStatToString,
     activityToString,
     detailedActivityToString,

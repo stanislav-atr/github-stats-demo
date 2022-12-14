@@ -36,4 +36,4 @@ jobs:
           REPO: ${{ github.event.inputs.repo }}
           SINCE: ${{ github.event.inputs.since }}
           UNTIL: ${{ github.event.inputs.until }}
-        run: ./bin/github-stats.js
+        run: node -r esm ./bin/github-stats.js

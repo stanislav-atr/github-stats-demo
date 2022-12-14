@@ -1,23 +1,8 @@
-name: Publish stats (manually)
+name: Publish stats
 
 on:
-  workflow_dispatch:
-    inputs:
-      repo:
-        description: 'Repository path'
-        required: true
-        type: string
-        default: 'AdguardTeam/AdguardFilters'
-      since:
-        description: 'Timestamp to search from'
-        required: false
-        type: string
-        default: '2022-11-21T09:00:00Z'
-      until:
-        description: 'Timestamp to search to'
-        required: false
-        type: string
-        default: '2022-11-22T09:00:00Z'
+  schedule:
+    - cron: "0 9 * * *"
 
 jobs:
   stats:
@@ -35,8 +20,8 @@ jobs:
           OAUTH_TOKEN: ${{ secrets.OAUTH_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COLLECTION_PATH: ./stats-data
-          REPO: ${{ github.event.inputs.repo }}
           SINCE: ${{ github.event.inputs.since }}
           UNTIL: ${{ github.event.inputs.until }}
+          COLLECTION_PATH: ./stats-data
+          REPO: AdguardTeam/AdguardFilters
         run: node -r esm ./bin/github-publish.js

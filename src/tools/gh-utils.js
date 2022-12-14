@@ -1,5 +1,5 @@
-const { Octokit } = require('@octokit/core');
-const { ENDPOINTS } = require('../constants');
+import { Octokit } from '@octokit/core';
+import { ENDPOINTS } from '../constants';
 
 const { GITHUB_TOKEN } = process.env;
 
@@ -9,7 +9,7 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
  * Get GitHub events from with pagination
  * @return {Promise<Array<Object>>} array with GitHub event objects
  */
-const getGithubEvents = async (commonRequestData = {}) => {
+export const getGithubEvents = async (commonRequestData = {}) => {
     const collectedPages = [];
 
     let currentLink = 'rel="next"';
@@ -34,7 +34,7 @@ const getGithubEvents = async (commonRequestData = {}) => {
  * Get open issues with pagination
  * @return {Promise<Array<Object>>} array with open issues
  */
-const getOpenIssues = async (commonRequestData = {}) => {
+export const getOpenIssues = async (commonRequestData = {}) => {
     const collectedPages = [];
 
     let currentLink = 'rel="next"';
@@ -54,9 +54,4 @@ const getOpenIssues = async (commonRequestData = {}) => {
     }
 
     return collectedPages.flat();
-};
-
-module.exports = {
-    getGithubEvents,
-    getOpenIssues,
 };

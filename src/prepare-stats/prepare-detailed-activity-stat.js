@@ -1,12 +1,12 @@
-const { countEventsByType, eventsToActivityByTime } = require('../tools/events-utils');
-const { EVENT_TYPES } = require('../constants');
+import { countEventsByType, eventsToActivityByTime } from '../tools/events-utils';
+import { EVENT_TYPES } from '../constants';
 
 /**
  * Count and sort activities
  * @param {Object<Object<Array>>} contributors Contributor instances by username
  * @return {Object<Object>}
  */
-const prepareDetailedActivityStat = (contributors) => {
+export const prepareDetailedActivityStat = (contributors) => {
     // Activities amount by username and activity type
     const activitiesByUser = {};
     // Activities amount by username, date and hour
@@ -36,5 +36,3 @@ const prepareDetailedActivityStat = (contributors) => {
         activitiesByTime,
     };
 };
-
-exports.prepareDetailedActivityStat = prepareDetailedActivityStat;
