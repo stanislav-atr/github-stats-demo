@@ -6,7 +6,7 @@ import { getTextBlock } from './get-text-block';
  * @param {string} legendMessageUrl URl to a slack message
  * @returns {Object[]}
  */
-const formatActivityStat = (activityStat, legendMessageUrl) => {
+export const formatActivityStat = (activityStat, legendMessageUrl) => {
     // Render empty block if message url is not supplied
     const legendMessage = legendMessageUrl ? getTextBlock(`_By activity points (<${legendMessageUrl}|what is it?>)_`) : getTextBlock(' ');
     const blocks = [
@@ -31,5 +31,3 @@ const formatActivityStat = (activityStat, legendMessageUrl) => {
 
     return blocks;
 };
-
-export { formatActivityStat };

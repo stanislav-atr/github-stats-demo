@@ -5,7 +5,7 @@ import { getTextBlock } from './get-text-block';
  * @param {Object} activitiesByUser activity sorted by users and then by type
  * @returns {Array[]}
  */
-const formatUserActivity = (activitiesByUser) => {
+export const formatUserActivity = (activitiesByUser) => {
     const userBlocks = [];
 
     Object.entries(activitiesByUser).forEach((stat) => {
@@ -38,5 +38,3 @@ Total comments: ${totalComments}`),
 
     return userBlocks;
 };
-
-export { formatUserActivity };

@@ -6,7 +6,7 @@ import { USERNAMES_EXCLUDES } from '../../constants';
  * @param {number} minActivity
  * @returns {Object}
  */
-const pruneStatistics = (statistics, minActivity) => {
+export const pruneStatistics = (statistics, minActivity) => {
     const prunedStat = {
         ...statistics,
     };
@@ -26,5 +26,3 @@ const pruneStatistics = (statistics, minActivity) => {
 
     return prunedStat;
 };
-
-export { pruneStatistics };

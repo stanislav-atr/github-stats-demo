@@ -5,7 +5,7 @@
  * @param {string} blockType
  * @returns {Object}
  */
-const getTextBlock = (text, textType = 'mrkdwn', blockType = 'section') => {
+export const getTextBlock = (text, textType = 'mrkdwn', blockType = 'section') => {
     return {
         type: blockType,
         text: {
@@ -14,5 +14,3 @@ const getTextBlock = (text, textType = 'mrkdwn', blockType = 'section') => {
         },
     };
 };
-
-export { getTextBlock };

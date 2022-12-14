@@ -6,9 +6,7 @@ import { format } from 'date-fns';
  * @param {string} date ISO date
  * @returns {string}
  */
-const formatDate = (date) => {
+export const formatDate = (date) => {
     const time = format(new Date(date), 't');
     return `<!date^${time}^{date}|Previous day>`;
 };
-
-export { formatDate };
