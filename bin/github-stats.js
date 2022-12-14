@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+import * as dotenv from 'dotenv';
+import { prepareStats } from '../src/prepare-stats/prepare-stats';
+import { printStats } from '../src/print-stats';
 
-require('dotenv').config();
-
-const { prepareStats } = require('../src/prepare-stats/prepare-stats');
-const { printStats } = require('../src/print-stats');
+dotenv.config();
 
 const {
     COLLECTION_PATH,

@@ -1,9 +1,9 @@
-const { format } = require('date-fns');
-const {
+import { format } from 'date-fns';
+import {
     EVENT_TYPES,
     LABEL_NAMES,
     ACTION_NAMES,
-} = require('../constants');
+} from '../constants';
 
 /**
  * Determines if Github event is 'opened'
@@ -230,7 +230,7 @@ const getActivityAuthor = (event) => {
     return contributorName;
 };
 
-module.exports = {
+export {
     isOpenedAction,
     isClosedAction,
     isStale,

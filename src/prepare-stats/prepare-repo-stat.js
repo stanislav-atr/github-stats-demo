@@ -1,11 +1,11 @@
-const { getOpenIssues } = require('../tools/gh-utils');
-const {
+import { getOpenIssues } from '../tools/gh-utils';
+import {
     isStale,
     isMerged,
     isClosedAction,
     isOpenedAction,
-} = require('../tools/events-utils');
-const { EVENT_TYPES } = require('../constants');
+} from '../tools/events-utils';
+import { EVENT_TYPES } from '../constants';
 
 /**
  * Prepare general repo stats
@@ -14,7 +14,7 @@ const { EVENT_TYPES } = require('../constants');
  * @param {Object} commonRequestData
  * @return {Object}
  */
-const prepareRepoStat = async (events, commonRequestData, timePeriod) => {
+export const prepareRepoStat = async (events, commonRequestData, timePeriod) => {
     const issuesEvents = events.filter((e) => e.type === EVENT_TYPES.ISSUES_EVENT);
     const newIssueEvents = issuesEvents.filter((e) => isOpenedAction(e));
     const resolvedIssueEvents = issuesEvents
@@ -46,5 +46,3 @@ const prepareRepoStat = async (events, commonRequestData, timePeriod) => {
 
     return generalStat;
 };
-
-exports.prepareRepoStat = prepareRepoStat;

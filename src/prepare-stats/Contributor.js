@@ -1,7 +1,7 @@
-const { getCommitsCount } = require('../tools/events-utils');
-const { EVENT_TYPES } = require('../constants');
+import { getCommitsCount } from '../tools/events-utils';
+import { EVENT_TYPES } from '../constants';
 
-class Contributor {
+export class Contributor {
     constructor() {
         this.events = {};
     }
@@ -30,5 +30,3 @@ class Contributor {
         return activityCount;
     }
 }
-
-exports.Contributor = Contributor;

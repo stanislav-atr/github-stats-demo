@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+import * as dotenv from 'dotenv';
+import { pollEvents } from '../src/poll-events';
 
-require('dotenv').config();
-const { pollEvents } = require('../src/poll-events');
-
+dotenv.config();
 const { COLLECTION_PATH, REPO } = process.env;
 
 const commonRequestData = {
