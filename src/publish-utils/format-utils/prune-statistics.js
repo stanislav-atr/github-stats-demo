@@ -1,6 +1,6 @@
 import {
-    USERNAMES_EXCLUDES,
-    USERNAMES_INCLUDES,
+    EXCLUDED_USERNAMES,
+    INCLUDED_USERNAMES,
 } from '../../constants';
 
 /**
@@ -21,9 +21,9 @@ export const pruneStatistics = (statistics, minActivity) => {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const [username, count] of Object.entries(activityStat)) {
-        const shouldBeRemoved = count <= minActivity || USERNAMES_EXCLUDES.includes(username);
-        const isWhitelisted = USERNAMES_INCLUDES.includes(username);
-        if (shouldBeRemoved && !isWhitelisted) {
+        const shouldBeRemoved = count <= minActivity || EXCLUDED_USERNAMES.includes(username);
+        const isAllowlisted = INCLUDED_USERNAMES.includes(username);
+        if (shouldBeRemoved && !isAllowlisted) {
             delete activityStat[username];
             delete activitiesByUser[username];
         }

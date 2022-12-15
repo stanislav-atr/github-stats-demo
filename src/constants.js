@@ -1,7 +1,6 @@
 export const MIN_REQUIRED_ACTIVITY = 5;
-export const USERNAMES_EXCLUDES = ['adguard-bot'];
-export const USERNAMES_INCLUDES = [
-    // These users should be always included in published stat
+// These users should be always included in published stat
+export const INCLUDED_USERNAMES = [
     'Alex-302',
     'Sergey-Lyapin',
     'AdamWr',
@@ -10,6 +9,7 @@ export const USERNAMES_INCLUDES = [
     'jellizaveta',
     'piquark6046',
 ];
+export const EXCLUDED_USERNAMES = ['adguard-bot'];
 
 export const MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
 export const EVENT_EXPIRATION_DAYS = 30;
