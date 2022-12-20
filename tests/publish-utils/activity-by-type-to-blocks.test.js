@@ -1,4 +1,4 @@
-import { formatUserActivity } from '../../src/publish-utils/format-utils';
+import { formatUserActivity, getUserIcon } from '../../src/publish-utils';
 
 describe('Formatting personal activity stat the right way', () => {
     it('works', () => {
@@ -26,7 +26,7 @@ describe('Formatting personal activity stat the right way', () => {
                     type: 'section',
                     text: {
                         type: 'mrkdwn',
-                        text: `*<https://github.com/${username}|${username}>*`,
+                        text: `${getUserIcon(username)}*<https://github.com/${username}|${username}>*`,
                     },
                 },
                 {

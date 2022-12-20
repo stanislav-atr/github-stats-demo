@@ -1,4 +1,5 @@
 import { getTextBlock } from './get-text-block';
+import { isTeamMember } from '../is-team-member';
 
 /**
  * Converts activity stat object to an array of Slack blocks
@@ -22,12 +23,23 @@ export const formatActivityStat = (activityStat, legendMessageUrl) => {
         return 0;
     });
 
-    sortedByActivity.forEach((stat) => {
-        const username = stat[0];
-        const userstat = stat[1];
+    let teamMembers = ':adguard: *AdGuard team*\n';
+    let contributors = ':bust_in_silhouette: *Contributors*\n';
 
-        blocks.push(getTextBlock(`*${username}:* ${userstat}`));
+    sortedByActivity.forEach((stat) => {
+        const [username, userstat] = stat;
+        const userString = `• ${username}: ${userstat}\n`;
+
+        if (isTeamMember(username)) {
+            teamMembers += userString;
+            return;
+        }
+
+        contributors += userString;
     });
+
+    blocks.push(getTextBlock(teamMembers));
+    blocks.push(getTextBlock(contributors));
 
     return blocks;
 };
