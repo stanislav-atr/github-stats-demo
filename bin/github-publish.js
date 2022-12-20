@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import * as dotenv from 'dotenv';
+import { startOfYesterday, endOfYesterday } from 'date-fns';
 import { prepareStats } from '../src/prepare-stats/prepare-stats';
 import { publishStats } from '../src/publish-stats';
-import { MILLISECONDS_IN_DAY } from '../src/constants';
 
 dotenv.config();
 
@@ -23,8 +23,8 @@ const commonRequestData = {
 
 // Set defaults to last 24h period
 const timePeriod = {
-    until: UNTIL || new Date().toISOString(),
-    since: SINCE || new Date(Date.now() - MILLISECONDS_IN_DAY).toISOString(),
+    since: SINCE || startOfYesterday().toISOString(),
+    until: UNTIL || endOfYesterday().toISOString(),
 };
 
 (async () => {

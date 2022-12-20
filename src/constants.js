@@ -1,5 +1,5 @@
 export const MIN_REQUIRED_ACTIVITY = 5;
-// These users should be always included in published stat
+// These users should be always included in published stat, e.g Adguard filters team members
 export const INCLUDED_USERNAMES = [
     'Alex-302',
     'Sergey-Lyapin',
