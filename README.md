@@ -2,7 +2,7 @@
 
 CLI App that polls data from GitHub REST API, stores it and gives analysis on contributors activity for given repository.
 
-Here's what counts as activity:
+Here's what counts as activity: <a id="activity_count"></a>
 * commit,
 * closed Issue (not marked as Stale),
 * a comment in an Issue or a Pull request,
@@ -51,7 +51,7 @@ env \
 
 ```
 env \
-    LEGEND_MESSAGE_URL=url \
+    LEGEND_URL=url \
     OAUTH_TOKEN=token \
     CHANNEL_ID=id \
     COLLECTION_PATH=stats-data \
@@ -70,4 +70,4 @@ env \
 #### Additional params for publishing
 * `OAUTH_TOKEN` — required, Slack App token 
 * `CHANNEL_ID` — required, channel id to post messages to
-* `LEGEND_MESSAGE_URL` — optional, URL to an arbitrary slack message that is supposed to be a legend to statistics. This is not displayed by default.
+* `LEGEND_URL` — optional, URL to an arbitrary resource that is supposed to be a legend to statistics. This is not displayed by default.

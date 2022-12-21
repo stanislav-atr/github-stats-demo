@@ -7,7 +7,7 @@ import { publishStats } from '../src/publish-stats';
 dotenv.config();
 
 const {
-    LEGEND_MESSAGE_URL,
+    LEGEND_URL,
     OAUTH_TOKEN,
     CHANNEL_ID,
     COLLECTION_PATH,
@@ -29,5 +29,5 @@ const timePeriod = {
 
 (async () => {
     const statistics = await prepareStats(COLLECTION_PATH, commonRequestData, timePeriod);
-    await publishStats(OAUTH_TOKEN, LEGEND_MESSAGE_URL, CHANNEL_ID, statistics);
+    await publishStats(OAUTH_TOKEN, LEGEND_URL, CHANNEL_ID, statistics);
 })();
