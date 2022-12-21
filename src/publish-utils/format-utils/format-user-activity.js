@@ -1,4 +1,5 @@
 import { getTextBlock } from './get-text-block';
+import { getUserIcon } from './get-user-icon';
 
 /**
  * Converts contributor's stats to an array of formatted block messages
@@ -20,7 +21,7 @@ export const formatUserActivity = (activitiesByUser) => {
         } = activities;
 
         const userBlock = [
-            getTextBlock(`*<https://github.com/${username}|${username}>*`),
+            getTextBlock(`${getUserIcon(username)}*<https://github.com/${username}|${username}>*`),
             // These are split into two blocks to prevent slack
             // from non-configurable block wrapping
             getTextBlock(`
