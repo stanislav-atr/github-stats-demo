@@ -15,6 +15,10 @@ jobs:
           node-version: 16
       - name: Install package
         run: yarn
+      - name: Set config
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Poll Github events
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
